@@ -3,7 +3,7 @@ services:
   app:
     ports:
       - 3010:3000
-    image: sslguala-ce:latest
+    image: sslguala-ce:1.0
     container_name: sslguala-ce
     command: bash -c "bundle exec rails s -b 0.0.0.0 -p 3000"
     environment:
@@ -33,7 +33,7 @@ services:
     volumes:
       - './datadir/redis:/data'  
   nginx:
-    image: sslguala-ce-nginx:latest
+    image: sslguala-ce-nginx:1.0
     depends_on:
       - app
       - web
