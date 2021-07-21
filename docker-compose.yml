@@ -3,7 +3,7 @@ services:
   app:
     ports:
       - 3010:3000
-    image: sslguala-ce:1.0
+    image: firhq/sslguala-ce:1.0
     container_name: sslguala-ce
     command: bash -c "bundle exec rails s -b 0.0.0.0 -p 3000"
     environment:
@@ -16,8 +16,7 @@ services:
       - db
     volumes:
       - ./log:/sslguala-ce/log
-      - ./public:/sslguala-ce/public # nginx 可以处理内容
-      - ./public:/sslguala-ce/public/ # nginx 可以处理内容
+      - ./public:/sslguala-ce/public # nginx 可以处理内容    
       - ./public/assets:/sslguala-ce/public/assets # nginx 可以处理内容
       - ./public/packs:/sslguala-ce/public/packs # nginx 可以处理内容
       - ./tmp/pids:/sslguala-ce/tmp/pids
@@ -33,9 +32,8 @@ services:
     volumes:
       - './datadir/redis:/data'  
   nginx:
-    image: sslguala-ce-nginx:1.0
+    image: firhq/sslguala-ce-nginx:1.0
     depends_on:
-      - app
-      - web
+      - app 
     ports:
       - 3011:80
