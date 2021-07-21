@@ -1,22 +1,18 @@
-# sslguala-ce-docker
+# 使用docker运行
 
-使用docker的形式构建
-
-以ubuntu为例子
+以ubuntu为例子[docker 入门](https://yeasy.gitbook.io/docker_practice/install/ubuntu)
 
 ## 1. 安装docker
 ```
 $ curl -fsSL get.docker.com -o get-docker.sh
 $ sudo sh get-docker.sh --mirror Aliyun
-
 ```
-启动
+启动docker
 ```
 $ sudo systemctl enable docker
 $ sudo systemctl start docker
-
 ```
-建立用户组
+建立docker用户组
 ```
 $ sudo groupadd docker
 $ sudo usermod -aG docker $USER
@@ -34,11 +30,10 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 ## 3. 修改环境变量
 
 ```
-cp app.env.example app.env 
-
+cp app.env.example app.env
 ```
 
-生成文件后，可不改动自动运行
+生成环境变量文件后, 可自行调整里面的内容
 
 ## 4. 运行项目
 生成数据库以及数据结构
