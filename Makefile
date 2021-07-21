@@ -1,7 +1,6 @@
-RAKE = docker-compose run web bundle exec rake
-RUN = docker-compose run web
+RAKE = docker-compose run app bundle exec rake
+RUN = docker-compose run app
 RUN_DB = docker-compose run postgres
-RUN_WEB = docker-compose run web
 
 include app.env
 export
